@@ -47,7 +47,7 @@ jobs:
                     autoindex on;
                 }
 
-EOF'
+            EOF'
             for file in /var/www/test2.page/*.html; do
               filename=$(basename "$file")
               sudo bash -c "cat >> /etc/nginx/sites-available/default <<EOF
@@ -55,11 +55,11 @@ EOF'
                     root /var/www/test2.page;
                     index $filename;
                 }
-EOF"
+            EOF"
             done
             sudo bash -c 'cat >> /etc/nginx/sites-available/default <<EOF
             }
-EOF'
+            EOF'
 
             # Перезапустить Nginx
             sudo systemctl restart nginx
