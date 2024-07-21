@@ -12,12 +12,10 @@ jobs:
     name: Deploy to EC2 on master branch push
     runs-on: ubuntu-latest
 
-# проверить файлы
     steps:
       - name: Checkout the files
         uses: actions/checkout@v2
 
-# подключиться к серверу, используя заданные ранее # #переменные и скинуть в папку $TARGET наш репозиторий.
       - name: Deploy to cometa_test
         uses: easingthemes/ssh-deploy@main
         env:
@@ -26,7 +24,6 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.TARGET }}
 
-# выполнить удаленные команды на сервере - переместить #файлы, перезапустить веб-сервер.
       - name: Executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
         with:
@@ -34,5 +31,35 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            # Переместить все HTML файлы в целевую директорию
             sudo mv /home/ubuntu/test2.page/web_test/pages/* /var/www/test2.page/
-            sudo service nginx restart
+
+            # Создать конфигурационный файл Nginx для каждого HTML файла
+            sudo bash -c 'cat > /etc/nginx/sites-available/default <<EOF
+            server {
+                listen 80 default_server;
+                listen [::]:80 default_server;
+
+                server_name _;
+
+                location / {
+                    root /var/www/test2.page;
+                    autoindex on;
+                }
+
+EOF'
+            for file in /var/www/test2.page/*.html; do
+              filename=$(basename "$file")
+              sudo bash -c "cat >> /etc/nginx/sites-available/default <<EOF
+                location /$filename {
+                    root /var/www/test2.page;
+                    index $filename;
+                }
+EOF"
+            done
+            sudo bash -c 'cat >> /etc/nginx/sites-available/default <<EOF
+            }
+EOF'
+
+            # Перезапустить Nginx
+            sudo systemctl restart nginx
