@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouMi.com - about</title>
+    <link rel="stylesheet" href="../css/main.css" />
+</head>
+<body>
+    <div class="hidden bg-black fixed w-full z-50 bg-opacity-50 h-full" id="hiddenLog">
+        <form action="#" class="flex flex-wrap justify-center lg:left-1/4 absolute top-8 bg-white rounded-3xl p-16">
+            <input type="text" class="border-2 rounded-3xl p-4 w-full" required placeholder="имя"/>
+            <input type="password" class="border-2 rounded-3xl p-4 mt-8 w-full" required placeholder="Пароль" name="password" id="password" />
+            <input type="submit" class="mt-4 bg-violet text-white p-4 rounded-3xl" value="Войти" />
+        </form>
+    </div>
+    <header class="flex flex-wrap bg-main-darker relative min-h-[128px] items-start">
+        <nav class="w-full flex">
+            <a href="../pages/main.html" class="mt-8 ml-4 md:ml-4 lg:ml-8">
+                <img class="w-[150px] h-[44.03px]" 
+                src="../resources/imgs/logo.svg" alt="Упс(" />
+            </a>
+            <div class="hidden mt-8 flex ml-auto md:flex md:gap-4 md:mr-0 md:text-4
+             lg:gap-12 lg:mr-8 lg:flex  lg:text-lg">
+                <button id="aboutUs">О нас</button>
+                <button id="rates">Тарифы</button>
+                <button id="psychologists">Психологам</button>
+                <button>Материалы</button>
+                <button class="border-2 border-violet rounded-3xl p-4
+                transition-colors delay-75 text-violet
+                hover:bg-violet hover:text-white 
+                active:bg-indigo-800 active:border-indigo-800
+                " id="personalAccount">Личный кабинет</button>
+            </div>
+            <button class="md:hidden mt-8 ml-auto mr-8" id="burger">
+                <img src="../resources/imgs/menu.svg" alt="Бургер" />
+            </button>
+        </nav>
+    </header>
+    <nav class="w-full hidden md:hidden flex flex-wrap bg-bluelike-light p-4 gap-2" id="hidden-menu">
+        <a href="./about us.html" class="w-full">
+            <button class="w-full border-2 rounded-3xl" id="aboutUs">О нас</button>
+        </a>
+        <a href="./rates.html" class="w-full">
+            <button class="w-full border-2 rounded-3xl" id="psychologists">Тарифы</button>
+        </a>
+        <a href="./psychologists.html" class="w-full">
+            <button class="w-full border-2 rounded-3xl" id="psychologists">Психологам</button>
+        </a>
+        <button class="w-full border-2 rounded-3xl">Материалы</button>
+        <button
+          class="border-2 w-full border-violet rounded-3xl p-1 transition-colors delay-75 text-violet hover:bg-violet hover:text-white active:bg-indigo-800 active:border-indigo-800"
+          onclick="personalAccount()"
+          >
+          Личный кабинет
+        </button>
+    </nav>
+    <section class="w-full flex flex-wrap items-start min-h-[450px] bg-main-darker">
+        <article class="flex flex-wrap justify-center ml-8 w-full lg:justify-start lg:w-2/3">
+            <h1 class="text-violet text-center font-extrabold text-md 
+            md:text-xl lg:text-3xl w-2/3 mt-8 lg:mt-16">
+                В YouMi вы не одни
+                <br />
+                <span class="bg-[url(../resources/imgs/ellipse.svg)]
+                bg-cover bg-no-repeat bg-center">Вместе</span> мы справимся
+            </h1>
+        </article>
+        <div class="w-full lg:w-1/4 flex items-start justify-center lg:justify-start">
+            <img src="../resources/imgs/illustration2.svg" class="" alt="Упс(" />
+        </div>
+    </section>
+    <section class="w-full flex flex-wrap justify-center">
+        <h1 class="text-sm md:text-xl lg:text-3xl text-violet text-center mt-8">
+            Наши ценности
+        </h1>
+        <div class="w-full flex items-start gap-5 justify-between flex-wrap p-8 lg:p-32 mt-32">
+            <div class="flex flex-wrap relative justify-center text-center
+            bg-bluelike-light w-full lg:w-1/4 rounded-3xl p-4">
+            <img src="../resources/imgs/rocket.svg" alt="упс(" class="absolute w-32 h-32 top-[-60px]"/>
+                <span class="w-full text-sm md:text-md lg:text-xl font-extrabold mt-16">
+                    Вместе мы справимся
+                </span>
+                <span class="mt-4 text-xs md:text-sm lg:text-md font-light">
+                    Мы всегда рядом.
+                    Свяжитесь с психологом в любое время
+                    и получите необходимую помощь.
+                </span>
+            </div>
+            <div class="flex flex-wrap mt-8 lg:mt-0 relative justify-center text-center 
+            bg-bluelike-light w-full lg:w-1/4 rounded-3xl p-4">
+            <img src="../resources/imgs/chat.svg" alt="упс(" class="absolute w-32 h-32 top-[-60px]"/>
+                <span class="w-full text-sm md:text-md lg:text-xl font-extrabold mt-16">
+                    Забота на расстоянии
+                </span>
+                <span class="mt-4 text-xs md:text-sm lg:text-md font-light">
+                    Мы позаботились о том, чтобы вы 
+                    чувствовали нашу поддержу постоянно.
+                    Для этого мы создали приложение с виртуальным психологом.
+                </span>
+            </div>
+            <div class="flex flex-wrap relative justify-center text-center
+            bg-bluelike-light mt-8 lg:mt-0 w-full lg:w-1/4 min-h-[100px] rounded-3xl p-4">
+            <img src="../resources/imgs/light bulb.svg" alt="упс(" class="absolute w-32 h-32 top-[-60px]"/>
+                <span class="w-full text-sm md:text-md lg:text-xl font-extrabold mt-16">
+                    Думаем о важном
+                </span>
+                <span class="mt-4 text-xs md:text-sm lg:text-md font-light">
+                    Займитесь главным, а напоминание 
+                    о предстоящих сессиях мы взяли на себя.
+                </span>
+            </div>
+        </div>
+    </section>
+    <section class="w-full flex flex-wrap p-16 bg-main-darker">
+        <h3 class="w-full text-xs lg:text-md">Мы работаем только с</h3>
+        <h1 class="w-full text-violet text-sm md:text-xl lg:text-3xl">
+            квалифицированными специалистами,
+            <br />
+            которые прошли наш 
+            <span class="bg-[url(../resources/imgs/underline.svg)] bg-no-repeat bg-bottom">
+                строгий отбор
+            </span>
+        </h1>
+        <div class="w-full flex flex-wrap p-2 justify-between">
+            <div class="flex flex-wrap justify-center w-full md:w-1/2 lg:w-1/4 mt-8">
+                <img src="../resources/imgs/face1.svg" class="w-3/4"/>
+                <h3 class="w-full text-xs lg:text-md text-center">
+                    Светлана
+                </h3>
+                <span class="w-full flex justify-center text-sm font-light">
+                    5 лет опыта
+                </span>
+            </div>
+            <div class="flex flex-wrap justify-center w-full md:w-1/2 lg:w-1/4 mt-8">
+                <img src="../resources/imgs/face2.svg" class="w-3/4"/>
+                <h3 class="w-full text-md text-center">
+                    Александр
+                </h3>
+                <span class="w-full flex justify-center text-sm font-light">
+                    12 лет опыта
+                </span>
+            </div>
+            <div class="flex flex-wrap justify-center w-full md:w-1/2 lg:w-1/4 mt-8">
+                <img src="../resources/imgs/face3.svg" class="w-3/4"/>
+                <h3 class="w-full text-md text-center">
+                    Мария
+                </h3>
+                <span class="w-full flex justify-center text-sm font-light">
+                    8 лет опыта
+                </span>
+            </div>
+            <div class="flex flex-wrap justify-center w-full md:w-1/2 lg:w-1/4 mt-8">
+                <img src="../resources/imgs/face4.svg" class="w-3/4" class="w-full"/>
+                <h3 class="w-full text-md text-center">
+                    Светлана
+                </h3>
+                <span class="w-full flex justify-center text-sm font-light">
+                    10 лет опыта
+                </span>
+            </div>
+        </div>
+    </section>
+    <section class="w-full flex flex-wrap bg-white p-8">
+        <span class="w-full font-bold text-xl"> Мы работаем только с </span>
+        <span class="w-full text-violet mt-4 text-2xl sm:text-3xl font-extrabold">
+          квалифицированными специалистами,
+          <br />
+          которые прошли наш строгий отбор
+        </span>
+        <span class="w-full font-light mt-4">
+          Помимо серии собеседований и испытаний по разработанной нами
+          <br />
+          методологии,психологи предоставляют необходимые документы:
+        </span>
+        <article
+          class="text-center sm:text-left flex w-full lg:w-2/3 bg-bluelike-light
+          items-center flex-column gap-12 mt-8 p-1 lg:p-12 md:p-2 rounded-3xl"
+        >
+          <img class="hidden w-[10%] lg:w-[20%] md:block" src="../resources/imgs/book.svg" alt="Упс(" />
+          <div class="text-sm md:text-md lg:text-xl w-full sm:w-fit">
+            Образование
+            <br />
+            <span class="text-xs lg:text-sm font-semibold">
+              Диплом о высшем психологическом
+              <br />
+              образовании и дополнительные
+              <br />
+              сертификаты
+            </span>
+          </div>
+        </article>
+        <article
+          class="text-center sm:text-left w-full lg:w-[30%] lg:ml-4 mt-8 
+          p-1 md:p-4 lg:p-12 flex flex-wrap items-center justify-center bg-bluelike-light rounded-3xl"
+        >
+          <span class="text-sm md:text-md lg:text-xl w-full"> Опыт работы </span>
+          <br />
+          <span class="text-xs lg:text-sm font-semibold w-full">
+            Подтвержденный опыт
+            <br />
+            работы не менее 3-х лет
+          </span>
+        </article>
+        <article
+          class="text-center sm:text-left w-full lg:w-[30%] mt-8 p-1 md:p-4 lg:p-12 
+          flex flex-wrap items-center justify-center bg-bluelike-light rounded-3xl"
+        >
+          <span class="text-sm md:text-md lg:text-xl w-full"> Обучение </span>
+          <br />
+          <span class="text-xs lg:text-sm font-semibold w-full mt-4">
+            Прохождение супервизии
+            <br />
+            от 20 часов в год
+          </span>
+        </article>
+        <article
+          class="text-center sm:text-left flex w-full lg:w-[66.5%] bg-bluelike-light 
+          flex-column items-center lg:ml-4 mt-8 p-1 md:p-4 lg:p-12 rounded-3xl"
+        >
+          <img class="hidden w-[15%] lg:w-[20%] md:block" src="../resources/imgs/watch.svg" alt="Упс(" />
+          <span class="w-full sm:w-fit text-sm md:text-md lg:text-xl">
+            Личная терапия
+            <br />
+            <span class="text-xs lg:text-sm font-semibold">
+              Прохождение личной
+              <br />
+              терапии от 50 часов в год
+            </span>
+          </span>
+        </article>
+      </section>
+    <section class="w-full flex flex-wrap p-16 bg-main-darker">
+        <h1 class="w-full text-center text-sm md:text-xl lg:text-3xl text-violet">
+            История проекта
+        </h1>
+       <div class="flex flex-wrap relative flex-row w-full mt-8">
+            <img src="../resources/imgs/face5.svg" class="hidden lg:block lg:w-1/4 
+            drop-shadow-[10px_10px_0px_rgba(205,225,255,1)]" />
+            <span class="relative w-3/4 text-center text-xs lg:text-md mt-auto mb-auto">
+                <img src="../resources/imgs/quotation1.svg" class="relative lg:left-[13%]"/>
+                Каждое наше действие основано на заботе
+                о наших клиентах и психотерапевтах. 
+                Мы гарантируем защиту и тем, и другим.
+                <img src="../resources/imgs/quotation2.svg" class="relative left-[70%] lg:left-[80%]"/>
+            </span>
+       </div>
+       <div class="flex flex-wrap relative flex-row w-full mt-8">
+        <span class="relative w-3/4 text-center text-xs lg:text-md mt-auto mb-auto">
+            <img src="../resources/imgs/quotation1.svg" class="relative left-0"/>
+            Наша миссия — сделать психотерапию 
+            понятной для каждого и убрать барьеры 
+            перед обращением за психологической 
+            помощью.
+            <img src="../resources/imgs/quotation2.svg" class="relative left-[80%]"/>
+        </span>
+        <img src="../resources/imgs/face6.svg" class="hidden lg:block lg:w-1/4 
+        drop-shadow-[10px_10px_0px_rgba(205,225,255,1)]" />
+        </div> 
+    </section>
+    <section class="w-full flex flex-wrap p-16">
+        <h1 class="w-full text-center text-sm md:text-xl lg:text-3xl text-violet mt-8">
+            О нас пишут
+        </h1>
+        <div class="w-full flex flex-wrap justify-evenly mt-8">
+            <img src="../resources/imgs/forbes.svg" /> 
+            <img src="../resources/imgs/рбк.svg" /> 
+            <img src="../resources/imgs/vogue.svg" /> 
+            <img src="../resources/imgs/gq.svg" /> 
+            <img src="../resources/imgs/kinzal.svg" />
+        </div> 
+    </section>
+    <footer
+    class="w-full flex flex-col gap-3 lg:flex-row bg-main-darker p-16 justify-evenly items-center"
+  >
+        <div class="flex flex-wrap">
+        <a href="./main.html" class="w-full flex">
+            <img src="../resources/imgs/logo.svg" alt="Упс(" />
+        </a>
+        <div class="w-full flex flex-wrap mt-2">
+            <a href="http://vk.com" class="w-[25%] h-[30px]">
+            <img src="../resources/imgs/vk.svg" alt="vk" />
+            </a>
+            <a href="http://telegram.org" class="w-[25%] h-[30px]">
+            <img src="../resources/imgs/telegram.svg" alt="telegram" />
+            </a>
+            <a href="http://dzen.ru" class="w-[25%] h-[30px]">
+            <img src="../resources/imgs/dzen.svg" alt="dzen" />
+            </a>
+        </div>
+        </div>
+        <div class="flex flex-wrap w-full lg:w-1/4">
+        <span class="w-full font-light"> Сотрудничество: </span>
+        <br />
+        <a href="mailto:@youmiwork" class="text-violet">@youmiwork</a>
+        <br />
+        <span class="w-full font-light"> Поддержка клиентов: </span>
+        <br />
+        <a href="mailto:@youmi" class="text-violet">@youmi</a>
+        </div>
+        <nav class="flex w-full lg:w-1/4 justify-center flex-wrap text-violet">
+        <a href="./about us.html" class="w-full"> О нас </a>
+        <a href="./tarrifs.html" class="w-full"> Тарифы </a>
+        <a href="./psychologists.html" class="w-full"> Психологам </a>
+        </nav>
+        <nav class="flex w-full lg:w-1/4 justify-center flex-wrap text-violet">
+        <a href="./blog.html" class="w-full"> Блог </a>
+        <a href="./QA.html" class="w-full"> Вопрос - ответ </a>
+        <a href="./contacts.html" class="w-full"> Контакты </a>
+        </nav>
+        <nav class="flex flex-wrap mr-auto underline text-[#4d4d52] opacity-50">
+        <a href="./blog.html" class="w-full">
+            Обработка персональных данных
+        </a>
+        <a href="./QA.html" class="w-full">
+            Пользовательское соглашение
+        </a>
+        <a href="./contacts.html" class="w-full">
+            Юридические документы
+        </a>
+        </nav>
+    </footer>
+    <script src="../scripts/links.js"></script>
+</body>
+</html>
