@@ -30,8 +30,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             # Переместить все HTML файлы в целевую директорию
-            sudo cp -r /home/ubuntu/test2.page/web_test/pages/* /var/www/test2.page/
-            sudo cp -r /home/ubuntu/test2.page/web_test/css/* /var/www/test2.page/
-            sudo cp -r /home/ubuntu/test2.page/web_test/scripts/* /var/www/test2.page/
-            sudo cp -r /home/ubuntu/test2.page/web_test/resources/* /var/www/test2.page/
+            sudo cp -r /home/ubuntu/test2.page/web_test/* /var/www/test2.page/
             sudo service nginx restart
