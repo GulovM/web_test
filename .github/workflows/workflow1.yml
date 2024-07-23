@@ -29,6 +29,27 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            # Переместить все HTML файлы в целевую директорию
-            sudo cp -r /home/ubuntu/test2.page/web_test/* /var/www/test2.page/
-            sudo service nginx restart
+            # Создать целевую директорию, если она не существует
+            sudo mkdir -p /var/www/test2.page
+
+            # Переместить все HTML, CSS, JS, FIG и другие файлы в целевую директорию
+            sudo cp -r ${{ secrets.TARGET }}/* /var/www/test2.page/
+            sudo cp -r ${{ secrets.TARGET }}/web_test/pages/* /var/www/test2.page/
+            sudo cp -r ${{ secrets.TARGET }}/web_test/fonts/* /var/www/test2.page/fonts/
+            sudo cp -r ${{ secrets.TARGET }}/web_test/imgs/* /var/www/test2.page/imgs/
+            sudo cp -r ${{ secrets.TARGET }}/web_test/*.html /var/www/test2.page/
+            sudo cp -r ${{ secrets.TARGET }}/web_test/*.css /var/www/test2.page/
+            sudo cp -r ${{ secrets.TARGET }}/web_test/*.js /var/www/test2.page/
+            sudo cp -r ${{ secrets.TARGET }}/web_test/*.json /var/www/test2.page/
+            sudo cp -r ${{ secrets.TARGET }}/web_test/*.fig /var/www/test2.page/
+
+            # Проверка конфигурации Nginx на наличие синтаксических ошибок
+            sudo nginx -t
+
+            # Перезапуск Nginx только если синтаксическая проверка успешна
+            if [ $? -eq 0 ]; then
+              sudo systemctl restart nginx
+            else
+              echo "Nginx configuration test failed. Please check the configuration."
+              exit 1
+            fi
